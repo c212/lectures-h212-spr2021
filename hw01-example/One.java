@@ -20,7 +20,7 @@ public class One {
   public static BigInteger helper(BigInteger older, BigInteger old, int count, int limit) {
     if (count == limit) return old.add(older);
     else {
-      System.out.println( count + ": " + (old.add(older)) );
+      // System.out.println( count + ": " + (old.add(older)) );
       return One.helper( old, (old.add(older)), count + 1, limit );
     }
   }
