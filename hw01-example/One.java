@@ -14,14 +14,15 @@ public class One {
   public static int fibo(int index) {
     if (index == 0) return 1;
     if (index == 1) return 1;
-    return One.helper(2, index);
+    return One.helper(1, 1, 2, index);
   }
-  public static int helper(int count, int limit) {
-    if (count == limit) return -1;
+  public static int helper(int older, int old, int count, int limit) {
+    if (count == limit) return old + older;
     else {
-      System.out.println( count );
-      return One.helper( count + 1, limit );
+      System.out.println( count + ": " + (old + older) );
+      return One.helper( old, (old + older), count + 1, limit );
     }
   }
 }
+
 
