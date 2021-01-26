@@ -1,3 +1,5 @@
+// switch to APS
+
 import java.util.Scanner;
 
 public class One {
@@ -12,6 +14,14 @@ public class One {
   public static int fibo(int index) {
     if (index == 0) return 1;
     if (index == 1) return 1;
-    return One.fibo(index-1) + One.fibo(index-2);
+    return One.helper(2, index);
+  }
+  public static int helper(int count, int limit) {
+    if (count == limit) return -1;
+    else {
+      System.out.println( count );
+      return One.helper( count + 1, limit );
+    }
   }
 }
+
