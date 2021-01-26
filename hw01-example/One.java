@@ -1,6 +1,7 @@
 // switch to APS
 
 import java.util.Scanner;
+import java.math.BigInteger;
 
 public class One {
   public static void main(String[] args) {
@@ -11,18 +12,19 @@ public class One {
     int index = Integer.parseInt( line ); // parses and converts
     System.out.println("The " + index + "-th Fibonacci number is: " + fibo(index));
   }
-  public static int fibo(int index) {
-    if (index == 0) return 1;
-    if (index == 1) return 1;
-    return One.helper(1, 1, 2, index);
+  public static BigInteger fibo(int index) {
+    if (index == 0) return new BigInteger("1");
+    if (index == 1) return BigInteger.ONE;
+    return One.helper(BigInteger.ONE, BigInteger.ONE, 2, index);
   }
-  public static int helper(int older, int old, int count, int limit) {
-    if (count == limit) return old + older;
+  public static BigInteger helper(BigInteger older, BigInteger old, int count, int limit) {
+    if (count == limit) return old.add(older);
     else {
-      System.out.println( count + ": " + (old + older) );
-      return One.helper( old, (old + older), count + 1, limit );
+      System.out.println( count + ": " + (old.add(older)) );
+      return One.helper( old, (old.add(older)), count + 1, limit );
     }
   }
 }
+
 
 
